@@ -19,6 +19,7 @@ After following the instructions, use the PostgreSQL command line to create the 
 Open a terminal, and use the following commands:
 
 sudo -i -u postgres
+
 psql
 
 The psql command opens the PostgreSQL shell. You can exit by typing \q.
