@@ -35,14 +35,26 @@ CREATE USER connor WITH PASSWORD 'testpassword';
 
 
 This username, password and database name (test_db) are used in the node.js backend to connect to the database. (See file server.js, line 20)
-
 Grant the user access to the database. In the PostgreSQL shell, type:
 
 GRANT ALL PRIVILEGES ON DATABASE test_db TO connor;
 
+Next, connect to the test_db:
+
+\c test_db
+
+
+Next, run this command:
+
+GRANT ALL ON SCHEMA public TO connor; 
+
+
+Now exit by typing \q
+
 Now you can create the 3 tables needed to run this project. To connect to the test_db database using psql, run this command:
 
 psql -U connor -d test_db
+
 
 Now create the product table:
 
