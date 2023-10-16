@@ -28,14 +28,11 @@ Inside the PostgreSQL shell, create a new database with the command:
 
 CREATE DATABASE test_db;
 
+
 Create a new user:
 
-createuser --interactive --pwprompt
+CREATE USER connor WITH PASSWORD 'testpassword';
 
-Follow the prompts to set the user's privileges and password. Use the following:
-username = connor
-password = testpassword
-superuser = yes
 
 This username, password and database name (test_db) are used in the node.js backend to connect to the database. (See file server.js, line 20)
 
@@ -56,12 +53,14 @@ CREATE TABLE product (
     available_on TIMESTAMP WITH TIME ZONE CHECK (available_on > NOW())
 );
 
+
 Now create the property table:
 
 CREATE TABLE property (
     id serial PRIMARY KEY,
     name VARCHAR(255) UNIQUE NOT NULL
 );
+
 
 Now create the product_properties table:
 
@@ -71,6 +70,7 @@ CREATE TABLE product_properties (
     property_id INT REFERENCES property(id),
     product_id INT REFERENCES product(id)
 );
+
 
 In the PostgreSQL shell, you can do a few things to check the tables or delete records:
 To see all tables in the current database:
