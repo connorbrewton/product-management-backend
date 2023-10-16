@@ -115,47 +115,6 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
-
-// Update a products by ID
-app.put('/api/products/:id', async (req, res) => {
-  const taskId = req.params.id;
-  const { title, completed } = req.body;
-
-  try {
-    const result = await pool.query(
-      'UPDATE products SET title = $1, completed = $2 WHERE id = $3 RETURNING *',
-      [title, completed, taskId]
-    );
-
-    if (result.rowCount === 0) {
-      return res.status(404).json({ error: 'Task not found' });
-    }
-
-    res.json(result.rows[0]);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while updating the task.' });
-  }
-});
-
-// Delete a product by ID
-app.delete('/api/products/:id', async (req, res) => {
-  const taskId = req.params.id;
-
-  try {
-    const result = await pool.query('DELETE FROM products WHERE id = $1', [taskId]);
-
-    if (result.rowCount === 0) {
-      return res.status(404).json({ error: 'Task not found' });
-    }
-
-    res.json({ message: 'Products deleted successfully' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while deleting the task.' });
-  }
-});
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
