@@ -4,9 +4,9 @@ Node.js backend for product management app. Connects to Postgres database.
 This project uses a React frontend which connects to this Node.js backend and a Postgres database. To run this project, you will need to setup the Postgres database.
 
 Note: This project was developed on a M1 Mac with the following installed:
-VSCode
-React 18.1.0
-Node 18.3.0
+VSCode,
+React 18.1.0,
+Node 18.3.0,
 npm 8.11.0
 
 -------------------------------------------------------------------------------
