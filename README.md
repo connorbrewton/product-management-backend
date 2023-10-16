@@ -9,6 +9,8 @@ React 18.1.0,
 Node 18.3.0,
 npm 8.11.0
 
+By default, the react frontend should be using port 3000, the node.js backend should be using port 5000, and the postgres database should be at port 5432.
+
 -------------------------------------------------------------------------------
 SETUP POSTGRES DATABASE
 -------------------------------------------------------------------------------
